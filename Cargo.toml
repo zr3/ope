@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 anyhow = "1.0.71"
-clap = { version = "4.0", features = ["derive"] }
-home = "0.5.5"
-log = "0.4.19"
+clap = { version = "4.0", features = ["cargo"] }
+directories = "5.0.1"
 simplelog = "0.12.1"
+time = { version = "0.3.22", features = ["formatting"] }
