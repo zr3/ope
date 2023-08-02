@@ -33,5 +33,11 @@ DO THIS:
 
 ## installation
 
-clone and build. packaging is WIP
+### cargo install
+
+clone and build (requires Rust and cargo installed)
+
+`$ cargo install --path .`
+
+installs to `~/.cargo/bin/` by default 
 

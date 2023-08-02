@@ -32,7 +32,7 @@ fn main() -> Result<()> {
         .create(true)
         .append(true)
         .open(applog_file)
-        .with_context(|| format!("could not open file `{}`", "test.log"))?;
+        .with_context(|| format!("could not open file `{}`", "ope.log"))?;
     let _ = WriteLogger::init(LevelFilter::Info, log_config, log_file);
 
     // parse CLI arguments
@@ -51,6 +51,8 @@ fn main() -> Result<()> {
                 .arg(arg!([HOPESANDDREAMS])),
         )
         .subcommand(Command::new("look").about("see your lists"))
+        .subcommand(Command::new("didit").about("mark a TODO as DONE"))
+        .subcommand(Command::new("fixed").about("mark a HACK as DONE"))
         .get_matches();
 
     match matches.subcommand() {
@@ -73,6 +75,8 @@ fn main() -> Result<()> {
             },
         ),
         Some(("look", _sub_matches)) => run_look(config),
+        Some(("didit", _sub_matches)) => run_look(config),
+        Some(("fixed", _sub_matches)) => run_look(config),
         _ => unreachable!("could not find a valid subcommand"),
     }
 }
